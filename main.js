@@ -18,10 +18,26 @@ Webcam.set({
     
     console.log("ml5 version:"+ml5.version);
     
-    classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/48FsA0cLi/model.json", modelLoaded);
+    classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/8u-DbPEMp/model.json", modelLoaded);
     
     function modelLoaded(){
     console.log("model loaded!");
     }
+
+    function check(){
+        img = document.getElementById("captured_image");
+        classifier.classify(img, gotResult);
+    }
     
+    function gotResult(error,result){
+        if(error){
+            console.log(error+"is the problem");
+        }
+        else
+        {
+            console.log(result);
+            document.getElementById("result_object_name").innerHTML = result[0].label;
+            document.getElementById("result_object_accuracy").innerHTML = (result[0].confidence*100).toFixed(2)+"%";
+        }
+    }
     

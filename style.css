@@ -1,4 +1,7 @@
-
+body{
+    background-color: #001220;
+    color:white
+}
 
 .heading{
 font-size: 22px;
@@ -13,5 +16,5 @@ width:80%;
 }
 
 #result_object_name, #result_object_accuracy, .name_of_objects{
-    color:rgb(0, 33, 82);
+    color:white;
 }
